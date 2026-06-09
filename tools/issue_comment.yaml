@@ -1,0 +1,49 @@
+identity:
+  name: issue_comment
+  author: shaba
+  label:
+    en_US: Comment on issue or PR
+description:
+  human:
+    en_US: Post a comment on an issue or pull request (requires a token with write scope)
+  llm: Post a comment on an issue or a pull request in a Forgejo or Gitea repository. Issues and pull requests share the same comment endpoint, so the number can refer to either. Requires an API token with write access.
+parameters:
+  - name: owner
+    type: string
+    required: true
+    label:
+      en_US: Owner
+    human_description:
+      en_US: Repository owner (user or organization)
+    llm_description: The owner (user or organization) of the repository
+    form: llm
+  - name: repo
+    type: string
+    required: true
+    label:
+      en_US: Repository
+    human_description:
+      en_US: Repository name (without .git)
+    llm_description: The repository name without the .git extension
+    form: llm
+  - name: index
+    type: number
+    required: true
+    label:
+      en_US: Issue or PR number
+    human_description:
+      en_US: The issue or pull request number to comment on
+    llm_description: The numeric index of the issue or pull request to comment on
+    form: llm
+  - name: body
+    type: string
+    required: true
+    label:
+      en_US: Comment body
+    human_description:
+      en_US: Comment text (Markdown)
+    llm_description: The comment text, in Markdown
+    form: llm
+extra:
+  python:
+    source: tools/issue_comment.py

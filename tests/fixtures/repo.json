@@ -1,0 +1,14 @@
+{
+  "id": 1,
+  "name": "demo",
+  "full_name": "octo/demo",
+  "description": "A demo repository",
+  "private": false,
+  "archived": false,
+  "language": "Python",
+  "stars_count": 42,
+  "forks_count": 7,
+  "open_issues_count": 3,
+  "default_branch": "main",
+  "html_url": "https://example.com/octo/demo"
+}

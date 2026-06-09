@@ -1,0 +1,31 @@
+identity:
+  name: repo_info
+  author: shaba
+  label:
+    en_US: Repository info
+description:
+  human:
+    en_US: Get a Forgejo/Gitea repository's metadata (description, stars, forks, default branch)
+  llm: Get metadata for a Forgejo or Gitea repository by owner and name, including description, language, stars, forks, open issue count and default branch.
+parameters:
+  - name: owner
+    type: string
+    required: true
+    label:
+      en_US: Owner
+    human_description:
+      en_US: Repository owner (user or organization)
+    llm_description: The owner (user or organization) of the repository
+    form: llm
+  - name: repo
+    type: string
+    required: true
+    label:
+      en_US: Repository
+    human_description:
+      en_US: Repository name (without .git)
+    llm_description: The repository name without the .git extension
+    form: llm
+extra:
+  python:
+    source: tools/repo_info.py

@@ -1,0 +1,67 @@
+identity:
+  name: create_pull
+  author: shaba
+  label:
+    en_US: Create pull request
+description:
+  human:
+    en_US: Open a pull request from a head branch into a base branch (requires write token)
+  llm: Open a new pull request in a Forgejo or Gitea repository from a head branch into a base branch. Requires an API token with write access. Returns the created PR number and link.
+parameters:
+  - name: owner
+    type: string
+    required: true
+    label:
+      en_US: Owner
+    human_description:
+      en_US: Repository owner (user or organization)
+    llm_description: The owner (user or organization) of the repository
+    form: llm
+  - name: repo
+    type: string
+    required: true
+    label:
+      en_US: Repository
+    human_description:
+      en_US: Repository name (without .git)
+    llm_description: The repository name without the .git extension
+    form: llm
+  - name: head
+    type: string
+    required: true
+    label:
+      en_US: Head branch
+    human_description:
+      en_US: Source branch (or user:branch for a fork)
+    llm_description: The head (source) branch to merge from. Use the form user:branch when the source is a fork.
+    form: llm
+  - name: base
+    type: string
+    required: true
+    label:
+      en_US: Base branch
+    human_description:
+      en_US: Target branch to merge into
+    llm_description: The base (target) branch to merge into, e.g. main
+    form: llm
+  - name: title
+    type: string
+    required: true
+    label:
+      en_US: Title
+    human_description:
+      en_US: Pull request title
+    llm_description: The title of the new pull request
+    form: llm
+  - name: body
+    type: string
+    required: false
+    label:
+      en_US: Body
+    human_description:
+      en_US: Pull request description (Markdown)
+    llm_description: The body/description of the new pull request, in Markdown
+    form: llm
+extra:
+  python:
+    source: tools/create_pull.py

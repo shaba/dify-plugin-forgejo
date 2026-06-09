@@ -1,0 +1,22 @@
+identity:
+  name: user_info
+  author: shaba
+  label:
+    en_US: User info
+description:
+  human:
+    en_US: Get a user's profile (or your own if a token is set and no username is given)
+  llm: Get a Forgejo or Gitea user's public profile by username. If username is omitted and an API token is configured, returns the authenticated token user's profile.
+parameters:
+  - name: username
+    type: string
+    required: false
+    label:
+      en_US: Username
+    human_description:
+      en_US: User to look up. Leave empty for your own profile.
+    llm_description: The username to look up. Leave empty to look up the authenticated token user.
+    form: llm
+extra:
+  python:
+    source: tools/user_info.py

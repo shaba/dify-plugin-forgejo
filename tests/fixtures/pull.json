@@ -1,0 +1,12 @@
+{
+  "number": 12,
+  "title": "Add a feature",
+  "state": "open",
+  "merged": false,
+  "mergeable": true,
+  "body": "This PR adds a nice feature.",
+  "user": {"login": "carol"},
+  "base": {"label": "octo:main", "ref": "main"},
+  "head": {"label": "carol:feature", "ref": "feature"},
+  "html_url": "https://example.com/octo/demo/pulls/12"
+}

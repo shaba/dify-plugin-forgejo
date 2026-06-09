@@ -1,0 +1,33 @@
+version: 0.0.1
+type: plugin
+author: shaba
+name: forgejo
+repo: https://github.com/shaba/dify-plugin-forgejo
+label:
+  en_US: Forgejo
+description:
+  en_US: "Forgejo: read and write repositories, issues, pull requests, commits and releases on any Forgejo server. Works with Gitea too (shared /api/v1 API)."
+icon: icon.svg
+resource:
+  memory: 268435456
+  permission:
+    model:
+      enabled: false
+    node:
+      enabled: false
+plugins:
+  tools:
+    - provider/forgejo.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: 1.0.0
+tags:
+  - productivity
+created_at: "2026-06-10T00:00:00Z"

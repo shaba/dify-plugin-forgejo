@@ -1,0 +1,22 @@
+identity:
+  name: list_repos
+  author: shaba
+  label:
+    en_US: List repositories
+description:
+  human:
+    en_US: List repositories of a user or organization (or your own if a token is set)
+  llm: List repositories owned by a given user or organization. If username is omitted and an API token is configured, lists the token user's own repositories.
+parameters:
+  - name: username
+    type: string
+    required: false
+    label:
+      en_US: Username or organization
+    human_description:
+      en_US: User or organization whose repositories to list. Leave empty for your own repos.
+    llm_description: The user or organization whose repositories to list. Leave empty to list the authenticated token user's repositories.
+    form: llm
+extra:
+  python:
+    source: tools/list_repos.py

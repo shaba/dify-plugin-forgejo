@@ -1,0 +1,40 @@
+identity:
+  name: get_pull
+  author: shaba
+  label:
+    en_US: Get pull request
+description:
+  human:
+    en_US: Get a single pull request by number
+  llm: Get the details of a single pull request in a Forgejo or Gitea repository by its number, including state, author, source and target branches, mergeability and body.
+parameters:
+  - name: owner
+    type: string
+    required: true
+    label:
+      en_US: Owner
+    human_description:
+      en_US: Repository owner (user or organization)
+    llm_description: The owner (user or organization) of the repository
+    form: llm
+  - name: repo
+    type: string
+    required: true
+    label:
+      en_US: Repository
+    human_description:
+      en_US: Repository name (without .git)
+    llm_description: The repository name without the .git extension
+    form: llm
+  - name: index
+    type: number
+    required: true
+    label:
+      en_US: Pull request number
+    human_description:
+      en_US: The pull request number
+    llm_description: The numeric pull request index/number within the repository
+    form: llm
+extra:
+  python:
+    source: tools/get_pull.py

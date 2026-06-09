@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "data": [
+    {"full_name": "octo/demo", "description": "A demo repository", "stars_count": 42},
+    {"full_name": "octo/other", "description": "", "stars_count": 1}
+  ]
+}

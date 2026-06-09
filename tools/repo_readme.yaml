@@ -1,0 +1,40 @@
+identity:
+  name: repo_readme
+  author: shaba
+  label:
+    en_US: Repository README
+description:
+  human:
+    en_US: Fetch and decode a repository's README file
+  llm: Fetch the README file of a Forgejo or Gitea repository and return its decoded text. An optional ref selects a branch, tag or commit.
+parameters:
+  - name: owner
+    type: string
+    required: true
+    label:
+      en_US: Owner
+    human_description:
+      en_US: Repository owner (user or organization)
+    llm_description: The owner (user or organization) of the repository
+    form: llm
+  - name: repo
+    type: string
+    required: true
+    label:
+      en_US: Repository
+    human_description:
+      en_US: Repository name (without .git)
+    llm_description: The repository name without the .git extension
+    form: llm
+  - name: ref
+    type: string
+    required: false
+    label:
+      en_US: Ref
+    human_description:
+      en_US: Branch, tag or commit. Defaults to the default branch.
+    llm_description: The branch, tag or commit SHA to read from. Defaults to the default branch.
+    form: llm
+extra:
+  python:
+    source: tools/repo_readme.py

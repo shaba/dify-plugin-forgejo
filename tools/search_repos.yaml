@@ -1,0 +1,22 @@
+identity:
+  name: search_repos
+  author: shaba
+  label:
+    en_US: Search repositories
+description:
+  human:
+    en_US: Search repositories on the Forgejo/Gitea server by keywords
+  llm: Search repositories across the Forgejo or Gitea server by free-text keywords. Returns matching repositories with full name, stars and description.
+parameters:
+  - name: query
+    type: string
+    required: true
+    label:
+      en_US: Query
+    human_description:
+      en_US: Search keywords (repository name fragment, topic)
+    llm_description: Free-text search keywords, e.g. a repository name fragment or topic
+    form: llm
+extra:
+  python:
+    source: tools/search_repos.py

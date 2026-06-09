@@ -1,0 +1,16 @@
+[
+  {
+    "sha": "abcdef1234567890",
+    "commit": {
+      "message": "Fix the bug\n\nLonger description here.",
+      "author": {"name": "Alice", "date": "2026-01-05T09:00:00Z"}
+    }
+  },
+  {
+    "sha": "0987654321fedcba",
+    "commit": {
+      "message": "Initial commit",
+      "author": {"name": "Bob", "date": "2026-01-01T08:00:00Z"}
+    }
+  }
+]

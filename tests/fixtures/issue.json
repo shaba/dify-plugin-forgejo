@@ -1,0 +1,10 @@
+{
+  "number": 5,
+  "title": "Something is broken",
+  "state": "open",
+  "body": "Steps to reproduce:\n1. do a thing\n2. it breaks",
+  "user": {"login": "alice"},
+  "labels": [{"name": "bug"}, {"name": "help wanted"}],
+  "assignees": [{"login": "bob"}],
+  "html_url": "https://example.com/octo/demo/issues/5"
+}

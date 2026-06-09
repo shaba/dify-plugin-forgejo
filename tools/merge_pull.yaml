@@ -1,0 +1,63 @@
+identity:
+  name: merge_pull
+  author: shaba
+  label:
+    en_US: Merge pull request
+description:
+  human:
+    en_US: Merge a pull request using a chosen merge method (requires write token)
+  llm: Merge an open pull request in a Forgejo or Gitea repository using the chosen merge method. Requires an API token with write access. The merge fails if the PR is not mergeable.
+parameters:
+  - name: owner
+    type: string
+    required: true
+    label:
+      en_US: Owner
+    human_description:
+      en_US: Repository owner (user or organization)
+    llm_description: The owner (user or organization) of the repository
+    form: llm
+  - name: repo
+    type: string
+    required: true
+    label:
+      en_US: Repository
+    human_description:
+      en_US: Repository name (without .git)
+    llm_description: The repository name without the .git extension
+    form: llm
+  - name: index
+    type: number
+    required: true
+    label:
+      en_US: Pull request number
+    human_description:
+      en_US: The pull request number to merge
+    llm_description: The numeric pull request index/number to merge
+    form: llm
+  - name: merge_method
+    type: select
+    required: false
+    default: merge
+    options:
+      - value: merge
+        label:
+          en_US: Merge commit
+      - value: squash
+        label:
+          en_US: Squash
+      - value: rebase
+        label:
+          en_US: Rebase
+      - value: rebase-merge
+        label:
+          en_US: Rebase with merge commit
+    label:
+      en_US: Merge method
+    human_description:
+      en_US: How to merge the pull request
+    llm_description: The merge method, one of merge, squash, rebase or rebase-merge. Defaults to merge.
+    form: llm
+extra:
+  python:
+    source: tools/merge_pull.py

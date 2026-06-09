@@ -1,0 +1,48 @@
+identity:
+  author: shaba
+  name: forgejo
+  label:
+    en_US: Forgejo
+  description:
+    en_US: Forgejo (Gitea-compatible) — repositories, issues, pull requests, commits, releases
+  icon: icon.svg
+  tags:
+    - productivity
+credentials_for_provider:
+  base_url:
+    type: text-input
+    required: true
+    label:
+      en_US: Forgejo base URL
+    placeholder:
+      en_US: https://example.com
+    help:
+      en_US: Base URL of the Forgejo (or Gitea) server. The REST API is served under /api/v1.
+    url: https://forgejo.org
+  api_token:
+    type: secret-input
+    required: false
+    label:
+      en_US: API token
+    help:
+      en_US: Personal access token. Optional for public read access; required for private data and all write operations. Write tools work only if the token has the matching scope.
+tools:
+  - tools/repo_info.yaml
+  - tools/list_repos.yaml
+  - tools/search_repos.yaml
+  - tools/repo_contents.yaml
+  - tools/repo_commits.yaml
+  - tools/repo_readme.yaml
+  - tools/repo_releases.yaml
+  - tools/list_issues.yaml
+  - tools/get_issue.yaml
+  - tools/list_pulls.yaml
+  - tools/get_pull.yaml
+  - tools/user_info.yaml
+  - tools/create_issue.yaml
+  - tools/issue_comment.yaml
+  - tools/create_pull.yaml
+  - tools/merge_pull.yaml
+extra:
+  python:
+    source: provider/forgejo.py

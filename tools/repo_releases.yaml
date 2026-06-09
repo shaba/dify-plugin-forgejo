@@ -1,0 +1,31 @@
+identity:
+  name: repo_releases
+  author: shaba
+  label:
+    en_US: Repository releases
+description:
+  human:
+    en_US: List a repository's releases (tag, name, draft/prerelease flags, date)
+  llm: List releases of a Forgejo or Gitea repository, with the tag name, release name, draft/prerelease flags and publish date.
+parameters:
+  - name: owner
+    type: string
+    required: true
+    label:
+      en_US: Owner
+    human_description:
+      en_US: Repository owner (user or organization)
+    llm_description: The owner (user or organization) of the repository
+    form: llm
+  - name: repo
+    type: string
+    required: true
+    label:
+      en_US: Repository
+    human_description:
+      en_US: Repository name (without .git)
+    llm_description: The repository name without the .git extension
+    form: llm
+extra:
+  python:
+    source: tools/repo_releases.py

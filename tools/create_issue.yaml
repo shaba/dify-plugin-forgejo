@@ -1,0 +1,49 @@
+identity:
+  name: create_issue
+  author: shaba
+  label:
+    en_US: Create issue
+description:
+  human:
+    en_US: Create a new issue in a repository (requires a token with write scope)
+  llm: Create a new issue in a Forgejo or Gitea repository. Requires an API token with write access to the repository. Returns the created issue number and link.
+parameters:
+  - name: owner
+    type: string
+    required: true
+    label:
+      en_US: Owner
+    human_description:
+      en_US: Repository owner (user or organization)
+    llm_description: The owner (user or organization) of the repository
+    form: llm
+  - name: repo
+    type: string
+    required: true
+    label:
+      en_US: Repository
+    human_description:
+      en_US: Repository name (without .git)
+    llm_description: The repository name without the .git extension
+    form: llm
+  - name: title
+    type: string
+    required: true
+    label:
+      en_US: Title
+    human_description:
+      en_US: Issue title
+    llm_description: The title of the new issue
+    form: llm
+  - name: body
+    type: string
+    required: false
+    label:
+      en_US: Body
+    human_description:
+      en_US: Issue description (Markdown)
+    llm_description: The body/description of the new issue, in Markdown
+    form: llm
+extra:
+  python:
+    source: tools/create_issue.py

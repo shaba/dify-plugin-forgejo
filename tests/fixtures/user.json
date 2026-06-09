@@ -1,0 +1,9 @@
+{
+  "login": "alice",
+  "full_name": "Alice Example",
+  "email": "alice@example.com",
+  "followers_count": 10,
+  "following_count": 5,
+  "starred_repos_count": 20,
+  "html_url": "https://example.com/alice"
+}

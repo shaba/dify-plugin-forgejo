@@ -1,0 +1,49 @@
+identity:
+  name: repo_contents
+  author: shaba
+  label:
+    en_US: Repository contents
+description:
+  human:
+    en_US: Read a file's content or list a directory at a path/ref in a repository
+  llm: Read the contents of a Forgejo or Gitea repository at a given path. If the path is a directory it lists the entries; if it is a file it returns the decoded text content. An optional ref selects a branch, tag or commit.
+parameters:
+  - name: owner
+    type: string
+    required: true
+    label:
+      en_US: Owner
+    human_description:
+      en_US: Repository owner (user or organization)
+    llm_description: The owner (user or organization) of the repository
+    form: llm
+  - name: repo
+    type: string
+    required: true
+    label:
+      en_US: Repository
+    human_description:
+      en_US: Repository name (without .git)
+    llm_description: The repository name without the .git extension
+    form: llm
+  - name: path
+    type: string
+    required: false
+    label:
+      en_US: Path
+    human_description:
+      en_US: File or directory path. Leave empty for the repository root.
+    llm_description: The file or directory path inside the repository. Leave empty to list the root directory.
+    form: llm
+  - name: ref
+    type: string
+    required: false
+    label:
+      en_US: Ref
+    human_description:
+      en_US: Branch, tag or commit. Defaults to the default branch.
+    llm_description: The branch, tag or commit SHA to read from. Defaults to the repository's default branch.
+    form: llm
+extra:
+  python:
+    source: tools/repo_contents.py

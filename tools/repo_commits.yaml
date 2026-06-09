@@ -1,0 +1,40 @@
+identity:
+  name: repo_commits
+  author: shaba
+  label:
+    en_US: Repository commits
+description:
+  human:
+    en_US: List recent commits of a repository, optionally on a given branch/ref
+  llm: List recent commits of a Forgejo or Gitea repository. Each entry shows the short SHA, date, author and commit subject. An optional ref selects a branch, tag or commit to start from.
+parameters:
+  - name: owner
+    type: string
+    required: true
+    label:
+      en_US: Owner
+    human_description:
+      en_US: Repository owner (user or organization)
+    llm_description: The owner (user or organization) of the repository
+    form: llm
+  - name: repo
+    type: string
+    required: true
+    label:
+      en_US: Repository
+    human_description:
+      en_US: Repository name (without .git)
+    llm_description: The repository name without the .git extension
+    form: llm
+  - name: ref
+    type: string
+    required: false
+    label:
+      en_US: Ref
+    human_description:
+      en_US: Branch, tag or commit to list from. Defaults to the default branch.
+    llm_description: The branch, tag or commit SHA to start listing commits from. Defaults to the default branch.
+    form: llm
+extra:
+  python:
+    source: tools/repo_commits.py

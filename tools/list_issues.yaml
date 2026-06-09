@@ -1,0 +1,60 @@
+identity:
+  name: list_issues
+  author: shaba
+  label:
+    en_US: List issues
+description:
+  human:
+    en_US: List issues in a repository, filtered by state and optional keywords
+  llm: List issues in a Forgejo or Gitea repository. Filter by state (open, closed, all) and an optional keyword query. Returns issue number, state, title and author.
+parameters:
+  - name: owner
+    type: string
+    required: true
+    label:
+      en_US: Owner
+    human_description:
+      en_US: Repository owner (user or organization)
+    llm_description: The owner (user or organization) of the repository
+    form: llm
+  - name: repo
+    type: string
+    required: true
+    label:
+      en_US: Repository
+    human_description:
+      en_US: Repository name (without .git)
+    llm_description: The repository name without the .git extension
+    form: llm
+  - name: state
+    type: select
+    required: false
+    default: open
+    options:
+      - value: open
+        label:
+          en_US: Open
+      - value: closed
+        label:
+          en_US: Closed
+      - value: all
+        label:
+          en_US: All
+    label:
+      en_US: State
+    human_description:
+      en_US: Issue state filter
+    llm_description: Issue state filter, one of open, closed or all. Defaults to open.
+    form: llm
+  - name: query
+    type: string
+    required: false
+    label:
+      en_US: Query
+    human_description:
+      en_US: Optional keyword to filter issues by title/body
+    llm_description: Optional keyword to search within issue titles and bodies
+    form: llm
+extra:
+  python:
+    source: tools/list_issues.py
