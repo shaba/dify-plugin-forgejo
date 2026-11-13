@@ -136,12 +136,12 @@ def format_issue(issue: dict[str, Any], comments: list[dict[str, Any]], *,
     author = (issue.get("user") or {}).get("login") or ""
     lines = [f"#{num} [{state}] {title}"]
     meta = [f"author: {author}"]
-    labels = [str((label_obj.get("name") or "")).strip()
+    labels = [str(label_obj.get("name") or "").strip()
               for label_obj in (issue.get("labels") or []) if isinstance(label_obj, dict)]
     labels = [label for label in labels if label]
     if labels:
         meta.append(f"labels: {', '.join(labels)}")
-    assignees = [str((a.get("login") or "")).strip()
+    assignees = [str(a.get("login") or "").strip()
                  for a in (issue.get("assignees") or []) if isinstance(a, dict)]
     assignees = [a for a in assignees if a]
     if assignees:

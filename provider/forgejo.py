@@ -21,7 +21,7 @@ class ForgejoProvider(ToolProvider):
                 "base_url must be an http(s) URL with a host (e.g. https://example.com)")
         try:
             validate(base_url, api_token)
-        except Exception as exc:  # noqa: BLE001
+        except Exception as exc:
             raise ToolProviderCredentialValidationError(
                 "Forgejo is not reachable or the token is invalid at "
                 f"{redact_credentials(base_url)}: {redact_credentials(exc)}"

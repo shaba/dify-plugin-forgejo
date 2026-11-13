@@ -73,7 +73,7 @@ def test_default_fetch_rejects_non_http_scheme():
 
 
 def test_default_fetch_normalizes_transport_error_and_redacts(monkeypatch):
-    import forgejo_client.http as http
+    from forgejo_client import http
 
     def boom(*a, **k):
         raise http.requests.ConnectionError(
@@ -88,7 +88,7 @@ def test_default_fetch_normalizes_transport_error_and_redacts(monkeypatch):
 
 
 def test_default_fetch_builds_auth_header_and_decodes(monkeypatch):
-    import forgejo_client.http as http
+    from forgejo_client import http
 
     seen = {}
 
@@ -119,7 +119,7 @@ def test_default_fetch_builds_auth_header_and_decodes(monkeypatch):
 
 
 def test_default_fetch_falls_back_to_text_on_non_json(monkeypatch):
-    import forgejo_client.http as http
+    from forgejo_client import http
 
     class FakeResponse:
         status_code = 200

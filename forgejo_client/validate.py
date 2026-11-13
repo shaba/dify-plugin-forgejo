@@ -20,5 +20,5 @@ def validate(base_url: str, token: str | None, *,
             get_version(base_url, fetch=fetch, timeout=timeout)
     except ForgejoError as exc:
         raise ApiError(redact_credentials(exc)) from exc
-    except Exception as exc:  # noqa: BLE001  (transport errors etc.)
+    except Exception as exc:
         raise ApiError(redact_credentials(exc)) from exc
