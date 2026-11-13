@@ -1,6 +1,6 @@
 [project]
 name = "dify-plugin-forgejo"
-version = "0.0.1"
+version = "0.0.2"
 description = "Browse repositories, issues and pull requests on any Forgejo or Gitea server"
 readme = "README.md"
 requires-python = ">=3.12"
