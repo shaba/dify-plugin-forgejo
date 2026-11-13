@@ -3,6 +3,7 @@ type: plugin
 author: shaba
 name: forgejo
 repo: https://github.com/shaba/dify-plugin-forgejo
+contact: shaba@altlinux.org
 label:
   en_US: Forgejo
 description:
