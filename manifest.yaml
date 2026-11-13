@@ -15,6 +15,7 @@ resource:
       enabled: false
     node:
       enabled: false
+privacy: PRIVACY.md
 plugins:
   tools:
     - provider/forgejo.yaml
